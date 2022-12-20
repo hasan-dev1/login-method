@@ -27,9 +27,12 @@ const Registration = () => {
     .then(result => {
       const user = result.user;
       setAutherr('')
-      toast.success('Acount Created Successfully')
       setLoading(false)
-      navigate('/login')
+      toast.success('Acount Created Successfully',{
+        position:'top-left'
+      })
+
+      navigate('/')
     })
     .catch(err => {
       setLoading(false)

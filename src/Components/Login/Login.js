@@ -22,11 +22,7 @@ const Login = () => {
     UserLogin(e.email, e.password)
     .then(result => {
       const user = result.user;
-      toast.success(
-        "If You Create New Account please Reload Your page On Time",{
-          duration: 4000,
-          position:'top-center'
-        });
+      toast.success('Login Successful')
       setLogerr('')
       setLoading(false)
       reset()
