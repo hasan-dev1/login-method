@@ -24,11 +24,13 @@ const Navbar = () => {
         <div className="navbar w-4/5 mx-auto">
           <div className="">
             <Link
-            onClick={()=>{
-              user ? navigate('/home') : toast.error('Please Login First',{
-                position:'top-left'
-              })
-            }}
+              onClick={() => {
+                user
+                  ? navigate("/")
+                  : toast.error("Please Login First", {
+                      position: "top-left",
+                    });
+              }}
               className="bg-slate-500 px-4 py-2 rounded text-white font-bold"
             >
               AuthCheck
@@ -40,7 +42,7 @@ const Navbar = () => {
                 <>
                   <li>
                     <Link
-                      to={"/home"}
+                      to={"/"}
                       className="px-4 py-2 bg-slate-500 rounded mx-1 text-white"
                     >
                       Home
@@ -58,12 +60,15 @@ const Navbar = () => {
                     <Link
                       onClick={() => {
                         userverify()
-                        .then(()=>{
-                          toast.success(
-                            `Check Your Email: ${user?.email} and Verify Your Account`
-                          );
-                        })
-                        .catch(err => setErrormail(err.message))
+                          .then(() => {
+                            toast.success(
+                              `Check Your Email: ${user?.email} and Verify Your Account`,
+                              {
+                                duration: 4000,
+                              }
+                            );
+                          })
+                          .catch((err) => setErrormail(err.message));
                       }}
                       className="px-4 py-2 bg-slate-500 rounded mx-1 text-white"
                     >
@@ -83,7 +88,7 @@ const Navbar = () => {
                 <>
                   <li>
                     <Link
-                      to={"/"}
+                      to={"/registration"}
                       className="px-4 py-2 bg-slate-500 rounded mx-1 text-white"
                     >
                       Registration

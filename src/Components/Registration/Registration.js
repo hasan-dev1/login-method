@@ -8,7 +8,7 @@ import {
   FaPhone,
   FaUserAlt,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../UserContext/UserContext";
 
 const Registration = () => {
@@ -132,6 +132,7 @@ const Registration = () => {
               )}
             </button>
           </div>
+            <div className="text-center"><p>Already have an account? <Link to={'/login'}>Login</Link></p></div>
         </form>
       </div>
     </div>

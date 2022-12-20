@@ -16,7 +16,6 @@ export const AuthContext = createContext();
 const UserContext = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-  const [isnew, setIsnew] = useState(false);
 
   //user registration
   const UserCreate = (email, password) => {
@@ -57,8 +56,6 @@ const UserContext = ({ children }) => {
     user,
     logout,
     loading,
-    isnew,
-    setIsnew,
     setEmail,
     userverify,
     updatepass,
@@ -66,8 +63,8 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     const Unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
       setLoading(false);
+      setUser(currentUser);
     });
 
     return () => {

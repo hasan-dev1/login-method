@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { FaEnvelope, FaKey } from 'react-icons/fa';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
 
 const Login = () => {
@@ -22,11 +22,15 @@ const Login = () => {
     UserLogin(e.email, e.password)
     .then(result => {
       const user = result.user;
-      toast.success('Logein Successful')
+      toast.success(
+        "If You Create New Account please Reload Your page On Time",{
+          duration: 4000,
+          position:'top-center'
+        });
       setLogerr('')
       setLoading(false)
       reset()
-      navigate('/home')
+      navigate('/')
     })
     .catch(err =>{
       setLogerr(err.message)
@@ -113,6 +117,11 @@ const Login = () => {
                   "Submit"
                 )}
               </button>
+              <div>
+                <p>
+                  doesnt have an account? <Link to={"/registration"}>SignUp</Link>
+                </p>
+              </div>
             </div>
           </form>
 
@@ -133,7 +142,7 @@ const Login = () => {
                 </h3>
                 <input
                   type="email"
-                  name='emailforchangepass'
+                  name="emailforchangepass"
                   className=" p-2 rounded input-bordered w-full my-3 bg-slate-400 text-black focus:outline-none"
                 />
                 <button className="bg-primary w-full px-4 py-2 rounded text-white font-bold text-center">
